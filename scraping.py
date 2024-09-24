@@ -52,8 +52,28 @@ def update():
             
             df = pd.DataFrame(data)
             
+            for i in range(len(df)):
+                
+                head = df.iloc[i, 0]
+                
+                if head == 'PS5':
+                    df.shift(axis=1)
+                elif head == 'PS4':
+                    df.shift(axis=1)
+                elif head == 'Switch':
+                    df.shift(axis=1)
+                elif head == 'XSX':
+                    df.shift(axis=1)
+                
             df.to_excel(year + '月' + month + '.xlsx', index=False, header=False)
-                        
+            
+            # element = driver.find_element(By.XPATH, '//*[@id="titleSche"]')
+            
+            # trlist = element.find_elements(By.TAG_NAME, 'tr')
+            
+            # for elem in trlist:
+            #     print(elem.text)
+            
         finally:
             os.kill(driver.service.process.pid,signal.SIGTERM)
     scr()
@@ -80,3 +100,27 @@ button1 = tk.Button(root, text='実行', command=update)
 button1.pack(pady=2)
 
 root.mainloop()
+
+# def scr():
+#     options = webdriver.ChromeOptions()
+#     options.set_capability("browserVersion", "113")
+#     # options.add_argument('--headless')
+
+#     driver = webdriver.Chrome(options = options)
+#     driver.implicitly_wait(10)
+#     driver.get('https://kakaku.com/')
+
+#     try:
+        
+#         btnGame = driver.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[2]/div[1]/div/div[4]/div/div/ul[7]/li[2]/a/p')
+#         btnGame.click()
+        
+#         btnSchedule = driver.find_element(By.XPATH, '//*[@id="game"]/div[2]/div[2]/div[1]/ul/li[5]/dl/dd/a')
+#         btnSchedule.click()
+        
+#         dropdown = driver.find_element(By.ID, 'year')
+#         dropdown_select = Select(dropdown)
+#         dropdown_select.select_by_value(year)
+
+#     finally:
+#         os.kill(driver.service.process.pid,signal.SIGTERM)
