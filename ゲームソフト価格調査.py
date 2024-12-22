@@ -49,7 +49,8 @@ def exe():
             btnGame = driver.find_element(By.XPATH, '/html/body/div[1]/div[1]/div[2]/div[1]/div/div[4]/div/div/ul[7]/li[2]/a/p')
             btnGame.click()
             
-            btnSchedule = driver.find_element(By.XPATH, '//*[@id="game"]/div[2]/div[2]/div[1]/ul/li[5]/dl/dd/a')
+            btnSchedule = driver.find_element(By.XPATH, '//*[@id="game"]/div[2]/div[2]/div[2]/ul/li[5]/dl/dd/a')
+
             btnSchedule.click()
             
             dropdown = driver.find_element(By.ID, 'year')
